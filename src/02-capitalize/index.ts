@@ -10,7 +10,20 @@
  * capitalize('a lazy fox') === 'A Lazy Fox'
  * capitalize('look, it is working!') === 'Look, It Is Working!'
  */
-
-function capitalize(str: string) {}
+//1. sadalīt vārdus array
+//- uztaisīt mainīgo kur ir atlikušais vārds
+//3. atdalīt pirmo burtu un padarīt to par uppercase
+//4. Savienot pirmo burtu ar pārējo vārdu
+//5. savienot atkal visu vienā string
+function capitalize(str: string) {
+  let stringArray: string[] = str.split(" ");
+  stringArray = stringArray.map((word: string) => {
+    const firstLetter: string = word[0].toUpperCase();
+    const restOfWord: string = word.slice(1);
+    return firstLetter + restOfWord;
+  })
+  return stringArray.join(" ");
+  
+}
 
 export { capitalize };
