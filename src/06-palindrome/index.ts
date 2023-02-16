@@ -13,6 +13,12 @@
  * palindrome("abcdefg") === false
  */
 
-function palindrome(str: string) {}
+function palindrome(str: string) {
+    let stringArray = str.split('');
+    stringArray = stringArray.reverse();
+    const reversedString = stringArray.join('');
+    return (str === reversedString);
+
+}
 
 export { palindrome };

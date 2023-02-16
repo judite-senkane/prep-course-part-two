@@ -14,16 +14,19 @@ class Words {
   count(str: string) {
     const words = str.toLowerCase().split(/\s+/g);
     const wordCount: Record<string, number> = {};
-    words.forEach(word => {
+    let counterForWord;
+    words.forEach((word) => {
+      if (word in wordCount) {
+        
+      }
       const counterForWord = wordCount[word];
-      if(!word) return;
+      if (!word) return;
       if (wordCount[word]) {
         wordCount[word] = counterForWord + 1;
       } else {
         wordCount[word] = 1;
       }
-      //ja iekš wordCount ir vārds, ++; ja nav, ieliek ar vērtību 1
-    })
+    });
     return wordCount;
   }
 }

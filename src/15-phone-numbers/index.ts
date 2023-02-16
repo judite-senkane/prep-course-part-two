@@ -28,11 +28,19 @@
  */
 
 class PhoneNumber {
-  constructor(input: string) {}
+  phoneNumber: string;
+  constructor(phoneNumber: string) {
+    this.phoneNumber = phoneNumber;
+  }
 
   number() {
-    return "";
+    const tidyPhoneNumber = this.phoneNumber.replace(/[^0-9]+/g, '').replace(/^(1)/,"");
+    const re = /^[2-9][0-9]{2}[2-9][0-9]{6}$/;
+    if (re.test(tidyPhoneNumber)) {
+      return tidyPhoneNumber;
+    } else {
+      return null;
+    }
   }
 }
-
 export { PhoneNumber };

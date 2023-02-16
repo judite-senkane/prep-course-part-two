@@ -16,6 +16,17 @@
  *              '#####'
  */
 
-function pyramid(n: number) {}
+function pyramid(n: number): string[][] {
+  let pyramidIllustration: string[][] = [];
+  if (n > 0) {
+    for (let i = 0, j = 1; i < n; i++, j++) {
+      let str: string = ' '.repeat(n - j);
+      let str2: string = '#'.repeat(i + j);
+
+      pyramidIllustration.push([str + str2 + str]);
+    }
+  }
+  return pyramidIllustration;
+}
 
 export { pyramid };

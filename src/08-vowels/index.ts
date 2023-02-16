@@ -9,6 +9,12 @@
  * vowels('Hello there!') === 4
  */
 
-function vowels(s: string) {}
+function vowels(s: string) {
+  const stringArray: string[] = s.split('');
+  const vowelsArray: string[] = stringArray.filter((letter) =>
+    letter.match(/[aeiou]/gi)
+  );
+  return vowelsArray.length;
+}
 
 export { vowels };
