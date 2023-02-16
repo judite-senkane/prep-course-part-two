@@ -14,14 +14,10 @@ class Words {
   count(str: string) {
     const words = str.toLowerCase().split(/\s+/g);
     const wordCount: Record<string, number> = {};
-    let counterForWord;
     words.forEach((word) => {
-      if (word in wordCount) {
-        
-      }
       const counterForWord = wordCount[word];
       if (!word) return;
-      if (wordCount[word]) {
+      if (Object.hasOwn(wordCount, word)) {
         wordCount[word] = counterForWord + 1;
       } else {
         wordCount[word] = 1;
