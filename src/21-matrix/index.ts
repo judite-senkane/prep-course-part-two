@@ -35,14 +35,33 @@
  */
 
 class Matrix {
-  constructor(private matrix: string) {}
+  matrixString: string = '';
+  twoDStringArray: string[][] = [];
+  twoDNumberArray: number[][] = [];
+  constructor(private matrix: string) {
+    this.matrixString = matrix;
+    this.twoDStringArray = matrix.split('\n').map((row) => row.split(' '));
+    this.twoDNumberArray = this.twoDStringArray.map((e) =>
+      e.map((n) => parseInt(n))
+    );
+  }
 
   get rows() {
-    return [];
+    return this.twoDNumberArray;
   }
 
   get columns() {
-    return [];
+    let columnsArray: number[][] = [];
+    let rows = this.twoDNumberArray[0].length;
+    let columns = this.twoDNumberArray.length;
+
+    for (let i = 0; i < rows; i++) {
+      columnsArray[i] = [];
+      for (let j = 0; j < columns; j++) {
+        columnsArray[i][j] = this.twoDNumberArray[j][i];
+      }
+    }
+    return columnsArray;
   }
 }
 

@@ -19,6 +19,10 @@
  *            '####'
  */
 
-function steps(n: number) {}
+function steps(n: number) {
+  for (let i = 1; i <= n; i++) {
+    console.log("#".repeat(i).concat(" ".repeat(n-i)));
+  }
+}
 
 export { steps };
